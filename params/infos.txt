@@ -1,0 +1,10 @@
+| Parâmetro          | Significado                                     | Unidade / Observação                        |
+| ------------------ | ----------------------------------------------- | ------------------------------------------- |
+| `Q_perf`           | Vazão total de perfusão (fluxo total na árvore) | m³/s — controla o tamanho dos ramos         |
+| `pressao_inlet`    | Pressão na raiz (entrada)                       | Pascal (ex: 13300 ≈ 100 mmHg)               |
+| `pressao_terminal` | Pressão nos terminais (saída)                   | Pascal (ex: 7980 ≈ 60 mmHg)                 |
+| `viscosidade`      | Viscosidade do sangue                           | Pa·s (ex: 0.0036 ≈ 3.6 cP)                  |
+| `Nterm`            | Número de terminais (folhas da árvore)          | Inteiro — controla complexidade da árvore   |
+| `gamma`            | Expoente da Lei de Murray                       | Típico: 3.0                                 |
+| `domain_radius`    | Raio do domínio circular 2D                     | Metros — tamanho do “órgão” simulado        |
+| `seed`             | Semente aleatória                               | Define a mesma geometria ao repetir o teste |

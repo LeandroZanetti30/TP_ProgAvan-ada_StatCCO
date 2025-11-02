@@ -1,0 +1,10 @@
+{
+  "Q_perf": 8.33e-06,
+  "pressao_inlet": 50000.0,
+  "pressao_terminal": 7980.0,
+  "viscosidade": 0.0036,
+  "Nterm": 64,
+  "gamma": 3.0,
+  "domain_radius": 0.05,
+  "seed": 42
+}

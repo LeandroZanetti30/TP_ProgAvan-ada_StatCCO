@@ -1,0 +1,5 @@
+/home/user/Documents/UFOP/UFOP_2025_2/Prog Avançada/code_cco/build/CMakeFiles/cco_tp1.dir
+/home/user/Documents/UFOP/UFOP_2025_2/Prog Avançada/code_cco/build/CMakeFiles/run.dir
+/home/user/Documents/UFOP/UFOP_2025_2/Prog Avançada/code_cco/build/CMakeFiles/analyze.dir
+/home/user/Documents/UFOP/UFOP_2025_2/Prog Avançada/code_cco/build/CMakeFiles/edit_cache.dir
+/home/user/Documents/UFOP/UFOP_2025_2/Prog Avançada/code_cco/build/CMakeFiles/rebuild_cache.dir
