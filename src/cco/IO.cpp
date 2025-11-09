@@ -17,16 +17,10 @@ bool save_tree_csv(const Tree& tree, const string& filename) {
     ofstream f(filename);
     if (!f.is_open()) return false;
     
-    f << "segment_id,parent_id,child_id,x_parent,y_parent,x_child,y_child,length,radius,flow,pressure_in,pressure_out,depth\n";
+    f << "segment_id,parent_id,child_id,x_parent,y_parent,x_child,y_child,length,radius,flow,pressure_in,pressure_out,is_terminal\n";
     
     auto &nodes = tree.nodes();
     auto &segs = tree.segments();
-    vector<int> depth(nodes.size(), 0);
-    
-    for (size_t i = 1; i < nodes.size(); ++i) {
-        int p = nodes[i].parent;
-        depth[i] = (p >= 0) ? depth[p] + 1 : 0;
-    }
     
     for (const auto &s : segs) {
         auto &pn = nodes[s.parent_node];
@@ -34,7 +28,7 @@ bool save_tree_csv(const Tree& tree, const string& filename) {
         
         f << s.id << "," << s.parent_node << "," << s.child_node << "," << fixed << setprecision(6)
           << pn.pos.x << "," << pn.pos.y << "," << cn.pos.x << "," << cn.pos.y << ","
-          << s.length << "," << s.radius << "," << s.flow << "," << pn.pressure_in << "," << cn.pressure_in << "," << depth[s.child_node] << "\n";
+          << s.length << "," << s.radius << "," << s.flow << "," << pn.pressure_in << "," << cn.pressure_in << "," << cn.is_terminal << "\n";
     }
     
     return true;
@@ -73,9 +67,9 @@ bool save_tree_svg(const Tree& tree, const string& filename, int img_w, int img_
         map_coord(n.pos.x, n.pos.y, R, img_w, img_h, x, y);
         
         if (n.parent == -1) {
-            f << "<circle cx=\"" << x << "\" cy=\"" << y << "\" r=\"4\" fill=\"red\" />\n";
-        } else if (n.children.empty()) {
-            f << "<circle cx=\"" << x << "\" cy=\"" << y << "\" r=\"3\" fill=\"blue\" />\n";
+            f << "<circle cx=\"" << x << "\" cy=\"" << y << "\" r=\"6\" fill=\"red\" />\n";
+        } else if (n.is_terminal) {
+            f << "<circle cx=\"" << x << "\" cy=\"" << y << "\" r=\"4\" fill=\"blue\" />\n";
         } else {
             f << "<circle cx=\"" << x << "\" cy=\"" << y << "\" r=\"2\" fill=\"black\" />\n";
         }
